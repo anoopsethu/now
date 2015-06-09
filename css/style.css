@@ -346,6 +346,7 @@ background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(108, 206, 23
 .banner-content h2 {color: #FFF;}
 .banner-content h5 {font-weight: bold; font-size: 16px; color: #FFF;}
 .banner-content p { color: rgba(255,255,255,0.7); font-size:20px; line-height:26px;}
+.banner-content h3{opacity:1;}
 
 .banner-list {margin-bottom: 20px;}
 .banner-list li {color: rgba(255,255,255, 0.8); margin-bottom: 5px;}
@@ -658,11 +659,22 @@ footer .footer-links-nav li, footer .footer-brand li{
 	.features-list{text-align:center;}
 	.features-list-left{text-align:center !important;}
 	.features-list-item {margin: 30px 0px !important;}
+	.features-list-item h5{text-align:center !important;}
 	#tutor h2, #student h2{text-align:center !important;}
 
 	.banner-content img{
 		margin-top:30px;
 	}
+	
+	.banner-content h3{
+		text-align:center;
+	}
+	
+	.margintop30{
+		margin-top:40px !important;
+	}
+	
+	.
 	
 	blockquote{
 		display:none;
@@ -1313,5 +1325,10 @@ blockquote {
 
 .cf{
 	margin-bottom:22px;
+}
+
+.hashlearn-tab{
+	height:32px;
+	background:#565656;
 }
 
