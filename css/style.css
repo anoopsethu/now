@@ -752,7 +752,11 @@ footer .footer-links-nav li, footer .footer-brand li{
 	margin-bottom:40px;
 }
 
-.features-list-left{
+.features-list-left h5{
+	text-align:left;
+}
+
+.features-list-right h5{
 	text-align:right;
 }
 
