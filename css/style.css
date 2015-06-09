@@ -1332,3 +1332,15 @@ blockquote {
 	background:#565656;
 }
 
+.app-image{
+	position: absolute;
+width: 359px;
+height: 705px;
+background: transparent url("../img/splash.png") no-repeat scroll 0px 0px;
+top: 156px;
+right:8%;
+margin-left: 0px;
+z-index: 555;
+overflow: visible;
+	
+}
