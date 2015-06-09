@@ -1328,8 +1328,13 @@ blockquote {
 }
 
 .hashlearn-tab{
-	height:32px;
+	height:28px;
 	background:#565656;
+}
+
+.hashlearn-tab img{
+	height:28px;
+	width:28px;
 }
 
 .app-image{
