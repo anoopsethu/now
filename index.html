@@ -4,6 +4,7 @@
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html lang="en"> <!--<![endif]-->
+{% load staticfiles %}
 
 <head>
 	<meta charset="utf-8">
@@ -18,26 +19,28 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<!-- Libs CSS -->
-	<link href="css/bootstrap.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+	<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css" media="screen" />
 
 	<!-- Template CSS -->
-	<link href="css/style.css" rel="stylesheet">
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
 	<!-- Modernizr -->
-    <script src="js/modernizr.min.js" type="text/javascript"></script>
+    <script src="{% static 'js/modernizr.min.js' %}" type="text/javascript"></script>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}"/>
 
 	<!-- Google Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,700,800&amp;subsetting=all' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,800,700,300' rel='stylesheet' type='text/css'>
 
 	<!--[if lt IE 9]>
-		<script src="js/html5shiv.js"></script>
-		<script src="js/respond.js"></script>
+		<script src="{% static 'js/html5shiv.js' %}"></script>
+		<script src="{% static 'js/respond.js' %}"></script>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<![endif]-->
+
+	
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -48,6 +51,11 @@
       ga('send', 'pageview');
 
     </script>
+		
+		
+
+		
+		
 	<script>
 	function ajaxRequest(){
 		if (window.XMLHttpRequest)
@@ -110,7 +118,7 @@
 					}
 				}
 
-				ajax_request.open("POST","{% url 'email-subscribe"  ,true);
+				ajax_request.open("POST","{% url 'email-subscribe' %}"  ,true);
 				ajax_request.setRequestHeader("X-CSRFToken", '{{csrf_token}}');
 				ajax_request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				ajax_request.send(params);
@@ -133,7 +141,7 @@
 			<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="hashlearn-tab">
 				<div class="container">
-					<a href="http://www.hashlearn.com"><img src="img/hashlearn.png"></a>
+					<a href="http://www.hashlearn.com"><img src="{% static 'img/hashlearn.png' %}"></a>
 				</div> 
 			</div>
 				<div class="container" style="margin-top:10px;">
@@ -145,7 +153,7 @@
 							<span class="icon-bar"></span>
 						</button>
 						<!-- Start Logo / Text -->
-						<a class="navbar-brand text-logo" href="#"><div class="logo-text"></div><img src="img/edvice_small_black.png" style="display:none;"></a>
+						<a class="navbar-brand text-logo" href="#"><div class="logo-text"></div><img src="{% static 'img/edvice_small_black.png' %}" style="display:none;"></a>
 						<!-- End Logo / Text -->
 					</div>
 					<!-- Start Navigation -->
@@ -157,7 +165,7 @@
 							<li><a href="#faq">FAQ</a></li>
 							<!-- <li><a href="#subscribe">Subscribe</a></li> -->
 							<li><a href="#tutor">Tutor Corner</a></li>
-							<!-- <li><a href= "{%url 'tutor-login">Tutor Login</a></li> -->
+							<!-- <li><a href= "{%url 'tutor-login' %}">Tutor Login</a></li> -->
 							<!-- <li><a onClick="modalInfographOpen()" class="pointer">Infographic</a></li> -->
 							<!-- <li><a href="mailto:getedvice@gmail.com?subject=Tell%20me%20more%20about%20Edvice">Contact</a></li> -->
 
@@ -178,37 +186,39 @@
 					<!-- Start Header Text -->
 					<div class="col-md-7 col-sm-7 margintop30">
 						<!-- <img src="img/logo.png" class="logo-big"> -->
-						<h1>Your own<strong> Private Tutor.</strong></h1>
+						<h1>Your Own<strong> Private Tutor.</strong></h1>
 						<div class="quote-container">
 							<!-- <p><blockquote>These student tutors have cracked these exams and they understand your struggles much better than anyone else.</blockquote></p> -->
-							<p>On-demand tutoring for Engineering Entrance. <br>High-quality tutors studying in IITs and BITS.</p>
+							<p>Connect instantly with student tutors in IITs and BITS. </br>Get help with concepts, questions and campus life!</p>
+							<p>Now open for Engineering Entrance exams. <b></b></p>
+							
+
+											
 						</div>
-						
-							<p style="margin-top:25px;">
-						<img src="img/play.png" class="play-img">
 
-					    <a href="http://www.facebook.com/getedvice" target="_blank"><img src="img/fbBig.png" class="play-img sm-big"></a>
-					    <a href="http://twitter.com/getedvice" target="_blank"><img src="img/twitterBig.png" class="play-img sm-big"></a>
 
-						</p>
-						
-						
-						<h3>Sign-up for an <b>invite</b>.</h3>
 						
 						<div class="form-wrapper cf">
 						<div class="submit-box">
-							<input class="email signup" id="email_top" name="signup[email]" placeholder="Enter your email address here." type="text" oninput="validateEmail(this.value, 'btn-submit-top')">
+							<input class="email signup" id="email_top" name="signup[email]" placeholder="Enter your email address for an invite." type="text" oninput="validateEmail(this.value, 'btn-submit-top')">
 							<button  class="btn-mail btn-disabled" id="btn-submit-top" onclick="submitEmail('email_top')"><span class="icon-send"></span></button>
 						</div>
 						</div>
 						
+						<p style="margin-top:25px;">
+						<img src="{% static 'img/play.png' %}" class="play-img">
+
+					    <a href="http://www.facebook.com/getedvice" target="_blank"><img src="{% static 'img/fbBig.png' %}" class="play-img sm-big"></a>
+					    <a href="http://twitter.com/getedvice" target="_blank"><img src="{% static 'img/twitterBig.png' %}" class="play-img sm-big"></a>
+
+						</p>
 					
 
 					</div>
 					<!-- End Header Text -->
 					<!-- Start Banner Optin Form-->
 					<div class="col-lg-5 col-md-4 col-sm-5" style="text-align:right;">
-						<img src="img/splash.png" class="banner-image">
+						<img src="{% static 'img/splash.png' %}" class="banner-image">
 					</div>
 					<!-- End Banner Optin Form -->
 				</div>
@@ -265,7 +275,7 @@
 
 						<!-- CLOSE UP PHONE IMAGE -->
 						<div class="col-md-4 col-md-pull-4">
-							<!-- <img src="img/features1.png" alt=""/> -->
+							<!-- <img src="{% static 'img/features1.png' %}" alt=""/> -->
 
 
 
@@ -273,19 +283,19 @@
 							<div class="flexslider group" id="features-slider">
                         <ul class="slides group">
                             <li class="group">
-																<p><img src="img/features1.png" class="feature_img" alt=""/></p>
+																<p><img src="{% static 'img/features1.png' %}" class="feature_img" alt=""/></p>
 
                             </li>
 														<li class="group">
-																<p><img src="img/features2.png" class="feature_img" alt=""/></p>
+																<p><img src="{% static 'img/features2.png' %}" class="feature_img" alt=""/></p>
 
                             </li>
 														<li class="group">
-																<p><img src="img/features3.png" class="feature_img" alt=""/></p>
+																<p><img src="{% static 'img/features3.png' %}" class="feature_img" alt=""/></p>
 
                             </li>
 														<li class="group">
-																<p><img src="img/features4.png" class="feature_img" alt=""/></p>
+																<p><img src="{% static 'img/features4.png' %}" class="feature_img" alt=""/></p>
 
                             </li>
 
@@ -324,7 +334,7 @@
                     <ul class="timeline">
                         <li>
                             <div class="timeline-image">
-                                <span class="step-num"><img src="img/hand.svg"></span>
+                                <span class="step-num"><img src="{% static 'img/hand.svg' %}"></span>
                             </div>
                             <div class="timeline-panel arrow_box">
 																<div class="timeline-heading">
@@ -337,7 +347,7 @@
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <span class="step-num"><img src="img/connect.svg"></span>
+                                <span class="step-num"><img src="{% static 'img/connect.svg' %}"></span>
                             </div>
                             <div class="timeline-panel arrow_box-inv">
 																<div class="timeline-heading">
@@ -350,7 +360,7 @@
                         </li>
                         <li>
                             <div class="timeline-image">
-                                <span class="step-num"><img src="img/face.svg"></span>
+                                <span class="step-num"><img src="{% static 'img/face.svg' %}"></span>
                             </div>
                             <div class="timeline-panel arrow_box">
 																<div class="timeline-heading">
@@ -363,7 +373,7 @@
                         </li>
 												<!-- <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <span class="step-num"><img src="img/connect.svg"></span>
+                                <span class="step-num"><img src="{% static 'img/connect.svg' %}"></span>
                             </div>
                             <div class="timeline-panel arrow_box-inv">
 																<div class="timeline-heading">
@@ -398,8 +408,8 @@
 			<div class="row" style="text-align:center;">
 				<div class="col-md-12 col-sm-12">
 						<h4>Interested in becoming a tutor at HashLearn Now?</h4><p style="margin-top:20px;margin-bottom:20px;">Tutor registrations are now open.</br>
-						We are accepting undergraduates from these <a href="{%url 'college-list" target="_blank"> colleges.</a> </p>
-						<a class="btn btn-lg tut-reg" onClick="modalLoginOpen()" style="">Register</a><a class="btn btn-lg tut-reg" href= "{%url 'tutor-login" style="margin-left:20px;">Login</a>
+						We are accepting undergraduates from these <a href="{%url 'college-list' %}" target="_blank"> colleges.</a> </p>
+						<a class="btn btn-lg tut-reg" onClick="modalLoginOpen()" style="">Register</a><a class="btn btn-lg tut-reg" href= "{%url 'tutor-login' %}" style="margin-left:20px;">Login</a>
 
 				</div>
 			</div>
@@ -539,7 +549,7 @@
                     <h4 class="modal-title" style="text-align:center;">Thanks!</h4>
                 </div>
                 <div class="modal-body" style="text-align:center">
-					<img src="img/tick.svg">
+					<img src="{% static 'img/tick.svg' %}">
                     <p>Thanks for subscribing to Edvice!</br>We are launching soon and will let you know the moment we do.</p>
                 </div>
 
@@ -560,7 +570,7 @@
                     <h4 class="modal-title" style="text-align:center;">Edvice Infographic</h4>
                 </div>
                 <div class="modal-body" style="text-align:center">
-                    <img src="img/thumb.png" class="infograph-thumb">
+                    <img src="{% static 'img/thumb.png' %}" class="infograph-thumb">
                     <p>So what do most students go through to crack the JEE?</br>A string of all nighters, endless question banks, anticipation and worry.</br>
                     Here is a story that we can relate to all too well!</p>
                     <a href="http://www.getedvice.com/infographic" target="_blank" class="btn btn-lg big-green">Take me there!</a>
@@ -587,7 +597,7 @@
  {% load socialaccount %}
 {% providers_media_js %}
  <a href="{% provider_login_url "facebook" method="js_sdk" %}"><img src="{{ STATIC_URL }}img/fb.png" style="margin-bottom:20px;"></a>
- <p style="margin-bottom:20px;">OR, </br>Login <a href= "{%url 'tutor-login"> here </a> if your have already signed up.</p>
+ <p style="margin-bottom:20px;">OR, </br>Login <a href= "{%url 'tutor-login' %}"> here </a> if your have already signed up.</p>
 
 
                 </div>
@@ -609,21 +619,26 @@
 	<!-- End of Modal -->
 
 	<!-- Start Js Files -->
-	<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script><!--jQuery is a Javascript library that greatly reduces the amount of code that you must write.-->
-	<script type="text/javascript">window.jQuery || document.write('<script src="js/jquery-2.1.0.min.js"><\/script>')</script>
+			<script type="text/javascript" src="{% static 'js/jquery-2.1.0.min.js' %}"></script><!--jQuery is a Javascript library that greatly reduces the amount of code that you must write.-->
+			<script>
+					var terms = ["Concept", "Questions", "Campus"];
 
-	<script defer src="js/jquery.flexslider.js"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script><!--Packed with many functionalies such as carousel slider, responsivity, tabs, drop downs, buttons, and many other features-->
+					function rotateTerm() {
+						var ct = $("#rotate").data("term") || 0;
+						$("#rotate").data("term", ct == terms.length -1 ? 0 : ct + 1).text(terms[ct]).fadeIn()
+												.delay(2000).fadeOut(200, rotateTerm);
+					}
+					$(rotateTerm);
+			</script>
+	
+	<script defer src="{% static 'js/jquery.flexslider.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript"></script><!--Packed with many functionalies such as carousel slider, responsivity, tabs, drop downs, buttons, and many other features-->
 
 	<!--Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.-->
 
-	<script src="js/custom.js" type="text/javascript"></script><!-- Script File containing all customizations  -->
+	<script src="{% static 'js/custom.js' %}" type="text/javascript"></script><!-- Script File containing all customizations  -->
 
-	<script type="text/javascript">
-        /* $(window).load(function(){
-            $("#modalInfograph").modal('show');
-        }); */
-    </script>
+
 
 	<!-- End Js Files  -->
 

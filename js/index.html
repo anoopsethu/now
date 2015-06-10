@@ -1,0 +1,17 @@
+<head>
+<script type="text/javascript" src="jquery-2.1.0.min.js"></script>
+<script>
+var terms = ["term 1", "term 2", "term 3"];
+
+function rotateTerm() {
+  var ct = $("#rotate").data("term") || 0;
+  $("#rotate").data("term", ct == terms.length -1 ? 0 : ct + 1).text(terms[ct]).fadeIn()
+              .delay(2000).fadeOut(200, rotateTerm);
+}
+$(rotateTerm);
+</script>
+</head>
+
+<body>
+<p>Here is a sentence <span id="rotate">this</span> is what changes</p>
+</body>
