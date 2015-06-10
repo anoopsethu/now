@@ -1292,6 +1292,7 @@ footer .footer-brand .logo-footer {
     border-radius:4px;
     background:#97dd52;
     margin-bottom:30px !important;
+		margin-top:10px;
 }
 
 .big-green:hover, .big-green:focus{
