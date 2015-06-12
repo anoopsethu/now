@@ -1263,12 +1263,14 @@ footer .footer-brand .logo-footer {
 
 .logo-text{
 	margin-top:0px;
-	width:183px;
-	height:56px;
+	width:222px;
+	height:100px;
 	background: url('../img/edvice_small.png');
 }
 
 .scroll-fixed-navbar.navbar-inverse .logo-text {
+		width:183px !important;
+		height:56px !important;
     background: url('../img/edvice_small_black.png');
 }
 
